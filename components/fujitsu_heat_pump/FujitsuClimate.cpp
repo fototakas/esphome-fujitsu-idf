@@ -65,6 +65,9 @@ optional<climate::ClimateFanMode> FujitsuClimate::fujiToEspFanMode(
     if (fujiFanMode == FujiFanMode::FAN_LOW) {
         return climate::ClimateFanMode::CLIMATE_FAN_LOW;
     }
+    if (fujiFanMode == FujiFanMode::FAN_QUIET) {
+        return climate::ClimateFanMode::CLIMATE_FAN_QUIET;
+    }
 
     return {};
 }
@@ -85,6 +88,9 @@ optional<FujiFanMode> FujitsuClimate::espToFujiFanMode(
 
     if (espFanMode == climate::ClimateFanMode::CLIMATE_FAN_LOW) {
         return FujiFanMode::FAN_LOW;
+    }
+    if (espFanMode == climate::ClimateFanMode::CLIMATE_FAN_QUIET) {
+        return FujiFanMode::FAN_QUIET;
     }
 
     return {};
@@ -245,7 +251,7 @@ climate::ClimateTraits FujitsuClimate::traits() {
     traits.set_visual_max_temperature(30);
 
     traits.set_supported_fan_modes(
-        {climate::CLIMATE_FAN_AUTO, climate::CLIMATE_FAN_LOW,
+        {climate::CLIMATE_FAN_AUTO, climate::CLIMATE_FAN_QUIET, climate::CLIMATE_FAN_LOW,
          climate::CLIMATE_FAN_MEDIUM, climate::CLIMATE_FAN_HIGH});
     traits.set_supported_presets({
         climate::CLIMATE_PRESET_ECO,
