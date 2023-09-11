@@ -246,7 +246,7 @@ climate::ClimateTraits FujitsuClimate::traits() {
         climate::CLIMATE_MODE_OFF,
     });
 
-    traits.set_visual_temperature_step(0.5);
+    traits.set_visual_temperature_step(1);
     traits.set_visual_min_temperature(16);
     traits.set_visual_max_temperature(30);
 
