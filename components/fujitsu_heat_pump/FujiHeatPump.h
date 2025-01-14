@@ -33,7 +33,7 @@ const byte kEconomyMask = 0b10000000;
 const byte kEconomyOffset = 7;
 
 const byte kTemperatureIndex = 4;
-const byte kTemperatureMask = 0b01111111;
+const byte kTemperatureMask = 0b01111110;
 const byte kTemperatureOffset = 0;
 
 const byte kUpdateMagicIndex = 5;
